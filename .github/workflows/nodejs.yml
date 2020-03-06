@@ -17,10 +17,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+          
       - run: yarn install
-      - run: echo ${{ github }}
-      - run: echo ${{ github.actor }}
-      - run: echo ${{ env }}
+      
       - name: Commit files
         run: |
           yarn run lint:fix
