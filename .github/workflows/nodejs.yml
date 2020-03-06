@@ -16,10 +16,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: printf 'const awsmobile = {}; \n\nexport default awsmobile;' > ./src/aws-exports.js
       - run: yarn install
       - run: yarn run lint:fix
-      - run: yarn run build --if-present
-      - run: yarn run lint
+      - name: Commit files
+        run: |
+          git config --local user.email "felipe.delatorre@fivetalent.com"
+          git config --local user.name "FelipeD-FiveTalent"
+          git commit -am "Automated report"
+          git push
         env:
           CI: true
