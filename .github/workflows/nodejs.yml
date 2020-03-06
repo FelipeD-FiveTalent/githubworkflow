@@ -25,9 +25,9 @@ jobs:
       - run: echo ${{ job }}
       - name: Commit files
         run: |
-          git config --local user.email "felipe.delatorre@fivetalent.com"
-          git config --local user.name ${{ github.actor }}
-          git commit -am "Automated report"
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -am "Cleaning"
           git push
         env:
           CI: true
