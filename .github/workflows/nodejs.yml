@@ -19,10 +19,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: yarn install
       - run: yarn run lint:fix
-      - run: echo ${{ <github> }}
-      - run: echo ${{ <github.actor> }}
-      - run: echo ${{ <env> }}
-      - run: echo ${{ <job> }}
+      - run: echo ${{ github }}
+      - run: echo ${{ github.actor }}
+      - run: echo ${{ env }}
+      - run: echo ${{ job }}
       - name: Commit files
         run: |
           git config --local user.email "felipe.delatorre@fivetalent.com"
