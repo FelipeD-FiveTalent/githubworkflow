@@ -18,13 +18,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: yarn install
-      - run: yarn run lint:fix
       - run: echo ${{ github }}
       - run: echo ${{ github.actor }}
       - run: echo ${{ env }}
-      - run: echo ${{ job }}
       - name: Commit files
         run: |
+          yarn run lint:fix
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -am "Cleaning ${{ github.actor }}'s mess'"
