@@ -1,6 +1,6 @@
 {
   // These are all my auto-save configs
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
 
   // turn it off for JS and JSX, we will do this via eslint
   "[javascript]": {
@@ -13,6 +13,6 @@
   // Optional BUT IMPORTANT: If you have the prettier extension enabled for other languages like CSS and HTML, turn it off for JS since we are doing it through Eslint already
   "prettier.disableLanguages": ["javascript", "javascriptreact"],
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": false
   }
 }
