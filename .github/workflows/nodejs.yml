@@ -27,7 +27,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -am "Cleaning"
+          git commit -am "Cleaning ${{ github.actor }}'s mess'"
           git push
         env:
           CI: true
