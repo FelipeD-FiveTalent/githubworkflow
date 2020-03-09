@@ -22,11 +22,11 @@ jobs:
           yarn install
           yarn run build --if-present
       
-      - name: Lint and Commit
+      - name: Lint
         run: |
           yarn run lint
         
-      - name: Lint and Commit
+      - name: Fix:Lint and Commit
         if: failure()
         run: |
           yarn run lint:fix
