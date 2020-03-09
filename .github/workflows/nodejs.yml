@@ -31,5 +31,9 @@ jobs:
           git commit -am "Cleaning ${{ github.actor }}'s mess"
           git push
 
+      - name: ESLint Action
+        uses: hallee/eslint-action@1.0.1
+
+
         env:
           CI: true
