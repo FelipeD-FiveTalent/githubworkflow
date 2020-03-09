@@ -17,15 +17,18 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-          
-      - run: yarn install
+
+      - name: Run Build
+        run: |    
+          yarn install
+          yarn run build --if-present
       
       - name: Commit files
         run: |
           yarn run lint:fix
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -am "Cleaning ${{ github.actor }}'s mess'"
+          git commit -am "Cleaning ${{ github.actor }}'s mess"
           git push
       - name: Commit files
         if: failure()
