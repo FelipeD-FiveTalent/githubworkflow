@@ -24,6 +24,11 @@ jobs:
       
       - name: Lint and Commit
         run: |
+          yarn run lint
+        
+      - name: Lint and Commit
+        if: failure()
+        run: |
           yarn run lint:fix
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
