@@ -30,9 +30,6 @@ jobs:
           git config --local user.name "GitHub Action"
           git commit -am "Cleaning ${{ github.actor }}'s mess"
           git push
-      - name: Commit files
-        if: failure()
-        run: |
-          echo "This failed"
+          
         env:
           CI: true
