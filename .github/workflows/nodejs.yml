@@ -20,8 +20,9 @@ jobs:
           
       - run: yarn install
       - run: yarn run build --if-present
+      - run: ls -a
       
-      - name: Commit files
+      - name: Run Lint and Commit
         run: |
           yarn run lint:fix
           git config --local user.email "action@github.com"
