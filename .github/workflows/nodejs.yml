@@ -17,11 +17,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: Run Build
-        run: |    
-          yarn install
-          yarn run build --if-present
+          
+      - run: yarn install
+      - run: yarn run build --if-present
       
       - name: Commit files
         run: |
@@ -30,6 +28,6 @@ jobs:
           git config --local user.name "GitHub Action"
           git commit -am "Cleaning ${{ github.actor }}'s mess"
           git push
-          
+
         env:
           CI: true
