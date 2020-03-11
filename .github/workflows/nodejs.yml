@@ -29,7 +29,7 @@ jobs:
       - name: Fix:Lint and Commit
         if: failure()
         run: |
-          yarn run lint:fix
+          yarn run lint:ga-fix
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -am "Cleaning ${{ github.actor }}'s mess"
