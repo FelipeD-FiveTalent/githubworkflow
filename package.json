@@ -16,7 +16,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint ./src",
-    "lint:ga-fix": "eslint --ignore-pattern '/node_modules/' --ignore-pattern '/build/' . --fix"
+    "lint:ga-fix": "eslint --ignore-pattern '/build/' . --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
