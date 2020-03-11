@@ -27,7 +27,6 @@ jobs:
           yarn run lint
         
       - name: Fix:Lint and Commit
-        if: failure
         if: cancelled()
         run: |
           yarn run lint:ga-fix
