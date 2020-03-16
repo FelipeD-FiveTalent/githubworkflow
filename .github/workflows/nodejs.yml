@@ -27,12 +27,12 @@ jobs:
           yarn run lint
         
       - name: Fix:Lint and Commit
-        if: cancelled()
+        if: failed()
         run: |
           yarn run lint:ga-fix
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -am "Cleaning ${{ github.actor }}'s mess"
+          git commit -am "Cleaning ${{ github.actor }}'s lint"
           git push
 
         env:
