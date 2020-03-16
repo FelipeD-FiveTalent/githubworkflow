@@ -16,9 +16,24 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: printf 'const awsmobile = {}; \n\nexport default awsmobile;' > ./src/aws-exports.js
-      - run: yarn install
-      - run: yarn run build --if-present
-      - run: yarn run lint
+
+      - name: Install and Build
+        run: |
+          yarn install
+          yarn run build --if-present
+      
+      - name: Lint
+        run: |
+          yarn run lint
+        
+      - name: Fix:Lint and Commit
+        if: failure()
+        run: |
+          yarn run lint:ga-fix
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -am "Cleaning ${{ github.actor }}'s lint"
+          git push
+
         env:
           CI: true
