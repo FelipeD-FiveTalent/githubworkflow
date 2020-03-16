@@ -27,7 +27,7 @@ jobs:
           yarn run lint
         
       - name: Fix:Lint and Commit
-        if: failed()
+        if: failure()
         run: |
           yarn run lint:ga-fix
           git config --local user.email "action@github.com"
